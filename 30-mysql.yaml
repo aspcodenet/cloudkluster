@@ -1,7 +1,9 @@
 # kubectl --kubeconfig=c:\temp\linode.yaml --namespace=yatest get pods
 # 
 # kubectl --kubeconfig=c:\temp\linode.yaml --namespace=yatest exec -it mysql-5f46cd7d5c-jz9xj sh
-# create database salary
+# mysql -p 
+# hejsan123
+# mysql> create database salary
 
 
 # INSTALLERA MYSQL
