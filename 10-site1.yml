@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: staticwebserver
-  namespace: ya2
+  namespace: yatest
   labels:
     app: staticwebserver
 spec:
