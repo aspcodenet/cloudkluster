@@ -5,28 +5,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gosite
+  name: spelet
   namespace: yatest
   labels:
-    app: gosite
+    app: spelet
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: gosite
+      app: spelet
   template:
     metadata:
       labels:
-        app: gosite
+        app: spelet
     spec:
       containers:
-        - name: gosite
-          image: git.systementor.se/yacloud/cloudstartapi
+        - name: spelet
+          image: git.systementor.se/yacloud/reactdemo
           ports:
-            - containerPort: 8080
+            - containerPort: 3000
           env:
             - name: RUNENVIRONMENT
               value: Production
+            - name: REACT_APP_BACKEND_URL
+              value: https://stefansgositeapi.chickenkiller.com
       imagePullSecrets:
       - name: regcred
 ---
@@ -34,16 +36,16 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: yatest
-  name: gosite-service
+  name: spelet-service
   labels:
-    app: gosite
+    app: spelet
 spec:
   type: ClusterIP
   ports:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8080
+    targetPort: 3000
   selector:
-    app: gosite
+    app: spelet
   sessionAffinity: None

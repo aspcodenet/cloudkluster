@@ -27,14 +27,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: ya2
+  namespace: yatest
   name: staticwebserver-service
   annotations:
     service.beta.kubernetes.io/linode-loadbalancer-throttle: "4"
   labels:
     app: staticwebserver
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: http
     port: 80
